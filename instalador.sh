@@ -227,7 +227,7 @@ while :; do
   case $1 in
   -s | --start) install_start && post_reboot && time_reboot "15" ;;
   -c | --continue)
-    #rm /root/Install-Sin-Key.sh &>/dev/null
+    #rm /root/instalador.sh &>/dev/null
     sed -i '/Instalador/d' /root/.bashrc
     install_continue
     break
