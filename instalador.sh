@@ -155,6 +155,13 @@ dependencias() {
   done
 }
 
+clear && clear
+msg -bar2
+echo -e " \e[5m\033[1;100m   =====>> ►► 🐲 MULTI - SCRIPT  🐲 ◄◄ <<=====   \033[1;37m"
+msg -bar2
+print_center -ama "LISTADO DE SCRIPT DISPONIBLES"
+msg -bar
+
 #VPS-MX 8.6 
 install_mod() {
   clear && clear
