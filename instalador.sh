@@ -19,7 +19,6 @@ if [[ "${?}" -ne 0 ]]; then
 fi
 /etc/init.d/ssh restart
 
-# EMPIEZA EL CODIGO
 clear && clear
 
 apt install net-tools -y &>/dev/null
