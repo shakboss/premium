@@ -1,7 +1,27 @@
 #!/bin/bash
 
-clear && clear
+#ROOT 
+if [[ "${UID}" -ne 0 ]]; then
+    echo " You need to run this script as root"
+    exit 1
+fi
 
+# To directly modify sshd_config.
+sed -i 's/#\?\(Port\s*\).*$/\1 22/' /etc/ssh/sshd_config
+sed -i 's/#\?\(PermitRootLogin\s*\).*$/\1 yes/' /etc/ssh/sshd_config
+sed -i 's/#\?\(PubkeyAuthentication\s*\).*$/\1 yes/' /etc/ssh/sshd_config
+sed -i 's/#\?\(PermitEmptyPasswords\s*\).*$/\1 no/' /etc/ssh/sshd_config
+sed -i 's/#\?\(PasswordAuthentication\s*\).*$/\1 yes/' /etc/ssh/sshd_config
+
+# Check the exit status of the last command
+if [[ "${?}" -ne 0 ]]; then
+   echo "The sshd_config file was not modified successfully"
+   exit 1
+fi
+/etc/init.d/ssh restart
+
+# EMPIEZA EL CODIGO
+clear && clear
 apt install net-tools -y &>/dev/null
 myip=$(ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0' | head -n1)
 myint=$(ifconfig | grep -B1 "inet addr:$myip" | head -n1 | awk '{print $1}')
