@@ -1,5 +1,4 @@
 #!/bin/bash
-
 # ROOT
 if [[ "${UID}" -ne 0 ]]; then
     echo " You need to run this script as root"
@@ -7,7 +6,6 @@ if [[ "${UID}" -ne 0 ]]; then
 fi
 
 # To directly modify sshd_config.
-
 sed -i 's/#\?\(Port\s*\).*$/\1 22/' /etc/ssh/sshd_config
 sed -i 's/#\?\(PermitRootLogin\s*\).*$/\1 yes/' /etc/ssh/sshd_config
 sed -i 's/#\?\(PubkeyAuthentication\s*\).*$/\1 yes/' /etc/ssh/sshd_config
@@ -15,12 +13,26 @@ sed -i 's/#\?\(PermitEmptyPasswords\s*\).*$/\1 no/' /etc/ssh/sshd_config
 sed -i 's/#\?\(PasswordAuthentication\s*\).*$/\1 yes/' /etc/ssh/sshd_config
 
 # Check the exit status of the last command
-
 if [[ "${?}" -ne 0 ]]; then
    echo "The sshd_config file was not modified successfully"
    exit 1
 fi
 /etc/init.d/ssh restart
+
+clear && clear
+
+apt install net-tools -y &>/dev/null
+myip=$(ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0' | head -n1)
+myint=$(ifconfig | grep -B1 "inet addr:$myip" | head -n1 | awk '{print $1}')
+rm -rf /etc/localtime &>/dev/null
+ln -s /usr/share/zoneinfo/America/Lima /etc/localtime &>/dev/null
+rm -rf /usr/local/lib/systemubu1 &>/dev/null
+rm -rf /etc/versin_script &>/dev/null
+v1=$(curl -sSL "https://raw.githubusercontent.com/emirjorge/premium/master/version")
+echo "$v1" >/etc/versin_script
+[[ ! -e /etc/versin_script ]] && echo 1 >/etc/versin_script
+v22=$(cat /etc/versin_script)
+vesaoSCT="\033[1;31m [ \033[1;32m($v22)\033[1;97m\033[1;31m ]"
 
 ### COLORES Y BARRA
 msg() {
