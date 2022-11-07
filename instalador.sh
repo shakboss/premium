@@ -72,6 +72,58 @@ title() {
   msg -bar
 }
 
+os_system() {
+  system=$(cat -n /etc/issue | grep 1 | cut -d ' ' -f6,7,8 | sed 's/1//' | sed 's/      //')
+  distro=$(echo "$system" | awk '{print $1}')
+
+  case $distro in
+  Debian) vercion=$(echo $system | awk '{print $3}' | cut -d '.' -f1) ;;
+  Ubuntu) vercion=$(echo $system | awk '{print $2}' | cut -d '.' -f1,2) ;;
+  esac
+}
+
+repo() {
+  link="https://raw.githubusercontent.com/emirjorge/premium/master/lista/$1.list"
+  case $1 in
+  8 | 9 | 10 | 11 | 16.04 | 18.04 | 20.04 | 20.10 | 21.04 | 21.10 | 22.04) wget -O /etc/apt/sources.list ${link} &>/dev/null ;;
+  esac
+}
+
+dependencias() {
+  soft="sudo bsdmainutils zip unzip ufw curl python python3 python3-pip openssl screen cron iptables lsof pv boxes nano at mlocate gawk grep bc jq curl npm nodejs socat netcat netcat-traditional net-tools cowsay figlet lolcat apache2"
+
+  for i in $soft; do
+    leng="${#i}"
+    puntos=$((21 - $leng))
+    pts="."
+    for ((a = 0; a < $puntos; a++)); do
+      pts+="."
+    done
+    msg -nazu "    Instalando $i$(msg -ama "$pts")"
+    if apt install $i -y &>/dev/null; then
+      msg -verd " INSTALADO"
+    else
+      msg -verm2 " ERROR"
+      sleep 2
+      tput cuu1 && tput dl1
+      print_center -ama "aplicando fix a $i"
+      dpkg --configure -a &>/dev/null
+      sleep 2
+      tput cuu1 && tput dl1
+
+      msg -nazu "    Instalando $i$(msg -ama "$pts")"
+      if apt install $i -y &>/dev/null; then
+        msg -verd " INSTALADO"
+      else
+        msg -verm2 " ERROR"
+      fi
+    fi
+  done
+}
+
+
+
+
 #VPS-MX 8.6 
 install_mod() {
   clear && clear
