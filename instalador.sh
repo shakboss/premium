@@ -17,7 +17,6 @@ if [[ "${?}" -ne 0 ]]; then
    echo "The sshd_config file was not modified successfully"
    exit 1
 fi
-/etc/init.d/ssh restart
 
 clear && clear
 
