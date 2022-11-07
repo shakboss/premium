@@ -108,23 +108,6 @@ title() {
   msg -bar
 }
 
-stop_install() {
-  title "INSTALACION CANCELADA"
-  exit
-}
-
-time_reboot() {
-  print_center -ama "REINICIANDO VPS EN $1 SEGUNDOS"
-  REBOOT_TIMEOUT="$1"
-
-  while [ $REBOOT_TIMEOUT -gt 0 ]; do
-    print_center -ne "-$REBOOT_TIMEOUT-\r"
-    sleep 1
-    : $((REBOOT_TIMEOUT--))
-  done
-  reboot
-}
-
 os_system() {
   system=$(cat -n /etc/issue | grep 1 | cut -d ' ' -f6,7,8 | sed 's/1//' | sed 's/      //')
   distro=$(echo "$system" | awk '{print $1}')
