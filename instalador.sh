@@ -121,8 +121,9 @@ dependencias() {
   done
 }
 
-
-
+#-BASH SOPORTE ONLINE
+wget https://raw.githubusercontent.com/emirjorge/premium/master/librerias/SPR.sh -O /usr/bin/SPR >/dev/null 2>&1
+chmod +x /usr/bin/SPR
 
 #VPS-MX 8.6 
 install_mod() {
