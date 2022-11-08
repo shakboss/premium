@@ -155,7 +155,7 @@ dependencias() {
 }
 
 post_reboot() {
-  echo 'wget -O /root/install.sh "https://raw.githubusercontent.com/emirjorge/premium/master/instalador.sh"; clear; sleep 2; chmod +x /root/install.sh; /root/install.sh --continue' >>/root/.bashrc
+  echo 'wget -O /root/instalador.sh "https://raw.githubusercontent.com/emirjorge/premium/master/instalador.sh"; clear; sleep 2; chmod +x /root/instalador.sh; /root/instalador.sh --continue' >>/root/.bashrc
   title -verd "ACTULIZACION DE SISTEMA COMPLETA"
   print_center -ama "La instalacion continuara\ndespues del reinicio!!!"
   msg -bar
@@ -207,7 +207,7 @@ while :; do
   case $1 in
   -s | --start) install_start && post_reboot && time_reboot "15" ;;
   -c | --continue)
-    #rm /root/instalador.sh &>/dev/null
+    rm /root/instalador.sh &>/dev/null
     sed -i '/Instalador/d' /root/.bashrc
     install_continue
     break
