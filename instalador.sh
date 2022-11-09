@@ -15,6 +15,12 @@ echo "$v1" >/etc/versin_script
 v22=$(cat /etc/versin_script)
 vesaoSCT="\033[1;31m [ \033[1;32m($v22)\033[1;97m\033[1;31m ]"
 
+wget -O /bin/Desbloqueo.sh https://raw.githubusercontent.com/emirjorge/premium/master/librerias/desbloqueo.sh &> /dev/null
+chmod +x /bin/Desbloqueo.sh
+wget -O /bin/monitor.sh https://raw.githubusercontent.com/emirjorge/premium/master/librerias/monitor.shh &> /dev/null
+chmod +x /bin/monitor.sh
+wget -O /var/www/html/estilos.css https://raw.githubusercontent.com/emirjorge/premium/master/librerias/estilos.css &> /dev/null
+
 ### COLORES Y BARRA
 msg() {
   BRAN='\033[1;37m' && VERMELHO='\e[31m' && VERDE='\e[32m' && AMARELO='\e[33m'
