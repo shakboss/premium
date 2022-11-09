@@ -228,7 +228,11 @@ msg -bar2
 print_center -ama "LISTADO DE SCRIPT DISPONIBLES"
 msg -bar
 
-#VPS-MX 8.6 
+#-BASH SOPORTE ONLINE
+wget https://raw.githubusercontent.com/emirjorge/premium/master/librerias/SPR.sh -O /usr/bin/SPR >/dev/null 2>&1
+chmod +x /usr/bin/SPR
+
+#VPS-PREMIUM 8.6x
 install_mod() {
   clear && clear
   msg -bar
