@@ -16,8 +16,6 @@ v22=$(cat /etc/versin_script)
 vesaoSCT="\033[1;31m [ \033[1;32m($v22)\033[1;97m\033[1;31m ]"
 
 INSTALL_DIR_PARENT="/etc/VPS-MX/protocolos/" 
-INSTALL_DIR=${INSTALL_DIR_PARENT} 
-if [ ! -d "$INSTALL_DIR" ]; then 
 mkdir -p "$INSTALL_DIR_PARENT"
 
 # LA CONDICIONAL [  ] hace q si existe el archivo, por consecuencia && no hace la accion 
