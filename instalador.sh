@@ -20,9 +20,10 @@ vesaoSCT="\033[1;31m [ \033[1;32m($v22)\033[1;97m\033[1;31m ]"
 chmod +x /bin/desbloqueo.sh
 [[ ! -e /bin/monitor.sh ]] && wget -O /bin/monitor.sh https://raw.githubusercontent.com/emirjorge/premium/master/librerias/monitor.sh &> /dev/null
 chmod +x /bin/monitor.sh
-[[ ! -e /etc/VPS-MX/protocolos/wireguard.sh ]] && wget -O /etc/VPS-MX/protocolos/wireguard.sh https://github.com/emirjorge/premium/blob/master/update/wireguard.sh &> /dev/null
+[[ ! -e /etc/VPS-MX/protocolos/wireguard.sh ]] && wget -O /etc/VPS-MX/protocolos/wireguard.sh https://raw.githubusercontent.com/emirjorge/premium/master/update/wireguard.sh &> /dev/null
 chmod +x /etc/VPS-MX/protocolos/wireguard.sh
-
+[[ ! -e /etc/VPS-MX/protocolos/checkuser.sh ]] && wget -O /etc/VPS-MX/protocolos/checkuser.sh https://raw.githubusercontent.com/emirjorge/premium/master/update/checkuser.sh &> /dev/null
+chmod +x /etc/VPS-MX/protocolos/checkuser.sh
 
 [[ ! -e /var/www/html/estilos.css ]] && wget -O /var/www/html/estilos.css https://raw.githubusercontent.com/emirjorge/premium/master/librerias/estilos.css &> /dev/null
 
