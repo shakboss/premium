@@ -16,7 +16,7 @@ v22=$(cat /etc/versin_script)
 vesaoSCT="\033[1;31m [ \033[1;32m($v22)\033[1;97m\033[1;31m ]"
 
 # LA CONDICIONAL [  ] hace q si existe el archivo, por consecuencia && no hace la accion 
-[[ ! -e /bin/desbloqueo.sh ]] && wget -O /bin/Desbloqueo.sh https://raw.githubusercontent.com/emirjorge/premium/master/librerias/desbloqueo.sh &> /dev/null
+[[ ! -e /bin/desbloqueo.sh ]] && wget -O /bin/desbloqueo.sh https://raw.githubusercontent.com/emirjorge/premium/master/librerias/desbloqueo.sh &> /dev/null
 chmod +x /bin/desbloqueo.sh
 [[ ! -e /bin/monitor.sh ]] && wget -O /bin/monitor.sh https://raw.githubusercontent.com/emirjorge/premium/master/librerias/monitor.sh &> /dev/null
 chmod +x /bin/monitor.sh
