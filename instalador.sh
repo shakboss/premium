@@ -15,6 +15,7 @@ echo "$v1" >/etc/versin_script
 v22=$(cat /etc/versin_script)
 vesaoSCT="\033[1;31m [ \033[1;32m($v22)\033[1;97m\033[1;31m ]"
 
+SCPdir="/etc/VPS-MX"
 [[ ! -d ${SCPdir}/tmp ]] && mkdir ${SCPdir}/tmp
 mkdir -p /etc/VPS-MX/protocolos
 
