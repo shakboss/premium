@@ -15,8 +15,8 @@ echo "$v1" >/etc/versin_script
 v22=$(cat /etc/versin_script)
 vesaoSCT="\033[1;31m [ \033[1;32m($v22)\033[1;97m\033[1;31m ]"
 
-SCPdir=/etc/VPS-MX
-[[ ! -d ${SCPdir}/tmp ]] && mkdir ${SCPdir}/tmp
+SCPdir="/etc/VPS-MX"
+[[ ! -d ${SCPdir}/tmp/ ]] && mkdir ${SCPdir}/tmp/
 mkdir /etc/VPS-MX/protocolos
 
 # LA CONDICIONAL [  ] hace q si existe el archivo, por consecuencia && no hace la accion 
