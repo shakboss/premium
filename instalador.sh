@@ -24,7 +24,8 @@ chmod +x /bin/monitor.sh
 chmod +x /etc/VPS-MX/protocolos/wireguard.sh
 [[ ! -e /etc/VPS-MX/protocolos/checkuser.sh ]] && wget -O /etc/VPS-MX/protocolos/checkuser.sh https://raw.githubusercontent.com/emirjorge/premium/master/update/checkuser.sh &> /dev/null
 chmod +x /etc/VPS-MX/protocolos/checkuser.sh
-
+[[ ! -e /etc/VPS-MX/protocolos/checkuser.py ]] && wget -O /etc/VPS-MX/protocolos/checkuser.py https://raw.githubusercontent.com/emirjorge/premium/master/update/chekuser.py &> /dev/null
+chmod +x /etc/VPS-MX/protocolos/checkuser.py
 [[ ! -e /var/www/html/estilos.css ]] && wget -O /var/www/html/estilos.css https://raw.githubusercontent.com/emirjorge/premium/master/librerias/estilos.css &> /dev/null
 
 ### COLORES Y BARRA
