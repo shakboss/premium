@@ -224,7 +224,7 @@ install_continue() {
 
 while :; do
   case $1 in
-  -s | --start) install_start && post_reboot && time_reboot "15" ;;
+  -s | --start) install_start && post_reboot && time_reboot "5" ;;
   -c | --continue)
     rm /root/instalador.sh &>/dev/null
     sed -i '/Instalador/d' /root/.bashrc
